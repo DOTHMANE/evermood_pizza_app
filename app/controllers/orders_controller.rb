@@ -2,5 +2,7 @@
 
 class OrdersController < ApplicationController
   # GET /orders
-  def index; end
+  def index
+    @orders = Order.where(state: 'COMPLETE')
+  end
 end
