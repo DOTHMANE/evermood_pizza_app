@@ -1,4 +1,4 @@
-<div  class="order">
+<div id="<%= order.id %>" class="order">
   <div class="order-card">
     <div class="order-header">
       <div class="order-details-container"> <!-- Flex container to align order details and items -->
@@ -30,7 +30,7 @@
     </div>
     <hr class="order-divider">
     <div >
-      <%= button_to 'Complete', order_path(order), method: :patch %>
+      <%= button_to 'Complete', order_path(order), method: :patch, form: { data: { turbo_stream: true } } %>
     </div>
   </div>
 </div>

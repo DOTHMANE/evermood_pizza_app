@@ -1,0 +1,5 @@
+<%= turbo_stream.remove dom_id(@order) %>
+
+<% if Order.where(state: "OPEN").empty? %>
+  <%= turbo_stream.replace "orders-list", partial: "orders/no_orders" %>
+<% end %>
