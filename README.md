@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project contains the Evermood pizza app. This is a Ruby on Rails 7 project.
 
-Things you may want to cover:
+You need:
+* Docker & docker-compose
+* Ruby 3.3.0
 
-* Ruby version
+## Build the environment
 
-* System dependencies
+  ```sh
+  docker-compose build
+  ```
 
-* Configuration
+## Database creation
 
-* Database creation
+  ```sh
+  docker-compose run backend bundle exec rake db:setup
+  ```
 
-* Database initialization
+## Start the environment
 
-* How to run the test suite
+  ```sh
+  docker-compose up
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Working with the Rails container
 
-* Deployment instructions
+  ```sh
+  docker-compose exec backend bash
+  ```
 
-* ...
+## Tests
+
+  ```sh
+  rspec
+  ```
+
