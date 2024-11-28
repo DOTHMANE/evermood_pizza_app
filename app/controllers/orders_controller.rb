@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:update]
   # GET /orders
   def index
-    @orders = Order.where(state: 'OPEN')
+    @orders = Order.where(state: 'OPEN').includes(:items)
   end
 
   def update
