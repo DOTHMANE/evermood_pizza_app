@@ -1,0 +1,11 @@
+<h1>Orders</h1>
+
+<div>
+  <% if @orders.present? %>
+    <% @orders.each do |order| %>
+      <%= render partial: "order", locals: { order: order } %>
+    <% end %>
+  <% else %>
+    <%= render partial: "no_orders" %>
+  <% end %>
+</div>

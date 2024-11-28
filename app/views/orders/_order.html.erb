@@ -1,0 +1,33 @@
+<div  class="order">
+  <div class="order-card">
+    <div class="order-header">
+      <div class="order-details-container"> <!-- Flex container to align order details and items -->
+        <div class="order-details"> <!-- Order details container -->
+          <p><strong>ID:</strong> <%= order.id %></p>
+          <p><strong>Created:</strong> <%= order.created_at.strftime("%B %d, %Y %H:%M") %></p>
+          <p><strong>Promotion Codes:</strong> <%= order.promotion_codes.join(', ').presence || '-' %></p>
+          <p><strong>Discount Codes:</strong> <%= order.discount_code.presence || '-' %></p>
+          <p><strong>Total Price:</strong> <%= number_to_currency(order.total_price, unit: "€") %></p>
+        </div>
+
+        <div class="order-items"> <!-- Order items container -->
+          <h3 class="items-title">Items:</h3>
+          <ul class="items-list"> <!-- List of items -->
+            <% order.items.each do |item| %>
+              <li class="order-item"> <!-- Individual item -->
+                <strong><%= item.name %> (<%= item.size.capitalize %>)</strong>
+                <% if item.add.present? %>
+                  <br> Add: <%= item.add.join(', ') %>
+                <% end %>
+                <% if item.remove.present? %>
+                  <br> Remove: <%= item.remove.join(', ') %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr class="order-divider">
+  </div>
+</div>
