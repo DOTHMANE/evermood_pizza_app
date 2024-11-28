@@ -40,5 +40,8 @@ module EvermoodPizzaApp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Load pizza config from YAML file
+    config.pizza_config = YAML.load_file(Rails.root.join('config', 'pizza_config.yml')).with_indifferent_access
   end
 end
