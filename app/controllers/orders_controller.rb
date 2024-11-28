@@ -1,6 +1,6 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
   # GET /orders
-  def index
-
-  end
+  def index; end
 end
